@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+	head
+		title Connect Four over WebRTC
+		meta(name='viewport' content='width=640px, initial-scale=1')
+
+		block styles
+			link(rel='stylesheet' href='//fonts.googleapis.com/css?family=Gloria+Hallelujah|Alef')
+			link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css')
+			link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css')
+			link(rel='stylesheet' href='/assets/css/screen.css')
+			link(rel='stylesheet' href='/stylesheets/style.css')
+			script(src='/assets/js/modernizr.custom.js')
+			
+	body
+			.bodyDiv
+				#modal-13.md-modal.md-effect-13
+					.md-content
+						div
+							#vid-box
+							button.md-close
+								i.md-close.fa.fa-times-circle-o
+				form#login(name='loginForm', action='#', onsubmit='return errWrap(login,this);')
+					span.input.input--nao
+						input#username.input__field.input__field--nao(type='text', name='username', placeholder='Enter A Username')
+						label.input__label.input__label--nao(for='username')
+							span.input__label-content.input__label-content--nao
+						svg.graphic.graphic--nao(width='300%', height='100%', viewbox='0 0 1200 60', preserveaspectratio='none')
+							path(d='M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0')
+					button.cbutton.cbutton--effect-radomir(type='submit', name='login_submit', value='Log In', style='margin-top: 40px; margin-left:-10px')
+						i.cbutton__icon.fa.fa-fw.fa.fa-sign-in
+				form#call(name='callForm', action='#', onsubmit='return errWrap(makeCall,this);')
+					span.input.input--nao
+						input#call.input__field.input__field--nao(type='text', name='number', placeholder='Enter User To Call!')
+						label.input__label.input__label--nao(for='number')
+							span.input__label-content.input__label-content--nao
+						svg.graphic.graphic--nao(width='300%', height='100%', viewbox='0 0 1200 60', preserveaspectratio='none')
+							path(d='M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0')
+					button.cbutton.cbutton--effect-radomir.md-trigger(type='submit', value='Call', style='margin-top: 40px; margin-left:-10px', data-modal='modal-13')
+						i.cbutton__icon.fa.fa-fw.fa.fa.fa-phone-square
+				button#showModal.cbutton.cbutton--effect-radomir.md-trigger(value='Call', hidden='true', data-modal='modal-13')
+				.ptext
+					p To Use:
+					p
+						| Enter a username and click Log in button. If input turns green you are ready to receive/place a call.
+					p
+						| In a separate browser window, log in with a different username, and place a call to the first.
+
+		block scripts
+			script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js')
+			script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js')
+			script(src='//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js')
+			script(src='//cdnjs.cloudflare.com/ajax/libs/peerjs/0.3.14/peer.min.js')
+			script(src='/assets/js/arteegee.js')
+
+			script(src='https://cdn.pubnub.com/pubnub.min.js')
+				
+			script(src='/assets/js/webrtc.js')
+			script(src='/assets/js/simple.js')
+			script(src='/assets/js/modalEffects.js')
+			script(src='/assets/js/classie.js')
+				
